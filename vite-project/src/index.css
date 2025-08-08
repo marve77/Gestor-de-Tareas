@@ -1,0 +1,301 @@
+.titulo-columna {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 18px;
+    color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.color-demo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 24px auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+.color-rojo {
+    background: #e53935;
+}
+.color-azul {
+    background: #1e88e5;
+}
+.color-amarillo {
+    background: #fbc02d;
+}
+.kanban-contenedor {
+  display: flex;
+  flex-direction: row;
+  min-height: 500px;
+  background: rgba(255,255,255,0.7); /* blanco semitransparente */
+  width: 80%;
+  margin: 30px auto 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  padding: 32px;
+  align-items: stretch;
+}
+
+.columna-kanban {
+    flex: 1;
+    margin: 0 12px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    /* min-height: 100%; */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    border: 4px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.kanban-contenedor {
+  display: flex;
+  flex-direction: row;
+  min-height: 500px;
+  background: rgba(255,255,255,0.4); /* más transparente */
+  width: 80%;
+  margin: 30px auto 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  padding: 32px;
+  align-items: stretch;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+body {
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #0f2027 0%, #2c5364 50%, #1e90ff 100%);
+  background-attachment: fixed;
+}
+
+
+
+
+.titulo-kanban {
+    color: white;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 2.5em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/* estilos de las tareas */
+.tarea {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+  padding: 16px;
+  margin-bottom: 18px;
+  color: #222;
+  cursor: grab;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.descripcion {
+  font-size: 0.98em;
+  color: #555;
+  padding: 8px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  line-height: 1.4;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+
+/* estilo para columnas */
+
+.columna-wrapper {
+  background-color: #f9f9f9;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  width: 300px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.columna-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.columna-header h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.columna-header button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.columna-header button:hover {
+  background-color: #45a049;
+}
+
+.columna-droppable {
+  flex-grow: 1;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.columna-droppable.over {
+  background-color: #e0ffe0;
+}
+
+
+
+
+/* estilo FormularioTarea*/
+
+.formulario-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* un poco más suave */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* subimos un poco para asegurar que esté sobre todo */
+}
+
+.formulario-tarea {
+  background: white;
+  padding: 2em; /* más espacio interno */
+  border-radius: 10px;
+  width: 400px; /* más ancho para que respire mejor */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* sombra más profunda */
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  position: relative; /* por si quieres agregar íconos flotantes */
+}
+
+.formulario-tarea input,
+.formulario-tarea textarea,
+.formulario-tarea select {
+  width: 100%;
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.formulario-botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5em;
+}
+
+.icono-mas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #43a047;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 2em;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  border: none;
+  margin: 0;
+  padding: 0;
+  transition: background 0.2s;
+}
+.icono-mas:hover {
+  background: #388e3c;
+}
+
+.agregar-tarea-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 8px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.agregar-tarea-button span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #43a047;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 2em;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  border: none;
+  margin: 0;
+  padding: 0;
+  transition: background 0.2s;
+}
+.agregar-tarea-button span:hover {
+  background: #388e3c;
+}
+.agregar-tarea-button {
+  position: relative;
+}
+.agregar-tarea-button {
+  /* Oculta el texto 'Agregar tarea' visualmente */
+}
+.agregar-tarea-button {
+  /* Solo muestra el primer span (el '+'), oculta el texto */
+}
+.agregar-tarea-button span + span, .agregar-tarea-button::after {
+  display: none !important;
+}
+.agregar-tarea-button {
+  white-space: nowrap;
+}
+
